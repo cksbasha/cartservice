@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     PROJECT = "my-project-600-339318"
-    APP_NAME = "emailservice"
+    APP_NAME = "cartservice"
     FE_SVC_NAME = "${APP_NAME}-frontend"
     CLUSTER = "iphone"
     CLUSTER_ZONE = "us-central1-c"
@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('golang') {
+        container('alpine3.12') {
           sh """
             ln -s `pwd` 
           """
