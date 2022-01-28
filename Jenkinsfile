@@ -24,8 +24,8 @@ spec:
   # Use service account that can deploy to all namespaces
   # serviceAccountName: cd-jenkins
   containers:
-  - name: python
-    image: python:3.9.10-slim-bullseye
+  - name: alpine:3.15.0
+    image: alpine:3.15.0
     command:
     - cat
     tty: true
@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('python') {
+        container('alpine:3.15.0') {
           sh """
             ln -s `pwd` 
           """
