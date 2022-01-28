@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     PROJECT = "my-project-600-339318"
-    APP_NAME = "cartservice"
+    APP_NAME = "emailservice"
     FE_SVC_NAME = "${APP_NAME}-frontend"
     CLUSTER = "iphone"
     CLUSTER_ZONE = "us-central1-c"
@@ -24,8 +24,8 @@ spec:
   # Use service account that can deploy to all namespaces
   # serviceAccountName: cd-jenkins
   containers:
-  - name: mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder
-    image: mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder
+  - name: python
+    image:  mcr.microsoft.com/dotnet/runtime-deps:5.0.1-alpine3.12-amd64
     command:
     - cat
     tty: true
@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder') {
+        container('python') {
           sh """
             ln -s `pwd` 
           """
@@ -64,7 +64,8 @@ spec:
         container('kubectl') {
           sh "gcloud container clusters get-credentials iphone --zone us-central1-c --project my-project-600-339318"
           sh "kubectl --help"
-
+          
+         
         }
       }
     }
