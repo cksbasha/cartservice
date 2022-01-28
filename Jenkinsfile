@@ -35,7 +35,7 @@ spec:
     - cat
     tty: true
   - name: kubectl
-    image: gcr.io/cloud-builders/kubectl
+    image: gcr.io/cloud-builders/gcloud/kubectl
     command:
     - cat
     tty: true
