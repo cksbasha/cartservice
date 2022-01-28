@@ -24,8 +24,8 @@ spec:
   # Use service account that can deploy to all namespaces
   # serviceAccountName: cd-jenkins
   containers:
-  - name: alpine:3.15.0
-    image: alpine:3.15.0
+  - name: mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder
+    image: mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder
     command:
     - cat
     tty: true
@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('alpine:3.15.0') {
+        container('mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim as builder') {
           sh """
             ln -s `pwd` 
           """
