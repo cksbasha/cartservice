@@ -30,7 +30,7 @@ spec:
     - cat
     tty: true
   - name: gcloud
-    image: gcr.io/cloud-builders/gcloud/mcr.microsoft.com/dotnet/runtime-deps:5.0.1-alpine3.12-amd64
+    image: gcr.io/cloud-builders/gcloud
     command:
     - cat
     tty: true
