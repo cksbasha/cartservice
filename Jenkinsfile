@@ -30,7 +30,7 @@ spec:
     - cat
     tty: true
   - name: gcloud
-    image: mcr.microsoft.com/dotnet/runtime-deps:5.0.1-alpine3.12-amd64
+    image: gcr.io/cloud-builders/gcloud
     command:
     - cat
     tty: true
@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('python') {
+        container('golang') {
           sh """
             ln -s `pwd` 
           """
