@@ -45,7 +45,7 @@ spec:
   stages {
     stage('build') {
       steps {
-        container('alpine3.12') {
+        container('default-jdk') {
           sh """
             ln -s `pwd` 
           """
