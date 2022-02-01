@@ -25,7 +25,7 @@ spec:
   # serviceAccountName: cd-jenkins
   containers:
   - name: python
-    image:  mcr.microsoft.com/dotnet/runtime-deps:5.0.1-alpine3.12-amd64
+    image: mcr.microsoft.com/dotnet/runtime-deps:5.0.1-alpine3.12-amd64
     command:
     - cat
     tty: true
@@ -35,7 +35,7 @@ spec:
     - cat
     tty: true
   - name: kubectl
-    image: gcr.io/cloud-builders/gcloud/kubectl
+    image: gcr.io/cloud-builders/kubectl
     command:
     - cat
     tty: true
